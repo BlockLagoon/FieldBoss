@@ -1,17 +1,6 @@
 <div id="top"></div>
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-
-
-  <h2 align="center">FieldBoss</h3>
-
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"></a>
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-  </p>
+  <h1 align="center"><< FieldBoss >></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -38,13 +27,7 @@
   </ol>
 </details>
 
-
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]]
-
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
@@ -53,6 +36,8 @@ Here's why:
 * You should implement DRY principles to the rest of your life :smile:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+
+[![Product Name Screen Shot][product-screenshot]]
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -111,4 +96,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/Untitled.png
