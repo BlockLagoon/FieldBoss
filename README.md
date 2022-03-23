@@ -21,6 +21,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+     <li><a href="#usage">GeoJSON</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -36,14 +37,10 @@ Here's why:
 * You should implement DRY principles to the rest of your life :smile:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-[![Product Name Screen Shot][product-screenshot]]
-<p align="right">(<a href="#top">back to top</a>)</p>
-
+![Product Name Screen Shot][product-screenshot]
 
 ### Built With
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
@@ -66,6 +63,9 @@ _Below is an example of how you can instruct your audience on installing and set
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## GeoJSON
+Use this space to show useful examples of how a project can be use
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 - [x] Add Changelog
