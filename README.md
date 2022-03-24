@@ -27,7 +27,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#navigating-the-ui">Navigating the UI</a></li>
+      </ul>
+    </li>
      <li><a href="#usage">GeoJSON</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
@@ -68,12 +74,23 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 ## Usage
-***Note***
-*	This proof of concept is built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
+
+### Notes
+*	The XRPL_FieldBoss.html web page is a proof of concept built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
 *	This application is fully integrated with Pinata/IPFS for GeoJSON upload and download.  However, to avoid wait times, a local GeoJSON file is being used as the metadata source (config.geojson).
 *	This POC demo has been pre-loaded with 3 XRPL NFT accounts on NFT-Devnet.  Each account has several geo-located NFTs already minted as shown on the map.
-![Product Name Screen Shot][product-screenshot]
+![Product Name Screen Shot][product-screenshot2]
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### Navigating the UI
+1.	At all times there will be an active inspector which represents the XRPL NFT account that will be performing any inspections.  The default account is Inspector 1.  Reset with @
+2.	The active inspector has two options for interacting with the map:	
+    * 'View Existing' allows the active inspector to click on a pole feature (NFT) on the map and review the results (metadata) of the most recent inspection for that pole and to view details of the NFT in the XRPL Explorer.  Any photos stored with the metadata of that NFT will be displayed in the image pane on the form.
+
+    * 'Add New Pole' allows the active inspector to place a new pole on the map with a mouse click.  This will be performed via GPS in the mobile version.  The inspection form is completed and upon SUBMIT a new pole (geo-located NFT) is created on the XRP Ledger residing in the active inspector’s account.  Data from the inspection form becomes the NFT’s metadata and is stored as GeoJSON in IPFS. 
+3.	'Add New Inspection' is activated when an existing pole is selected on the map.  This tool allows the active inspector to create a new inspection record for that pole at the current date and time.  Upon SUBMIT, the form is updated with the current data and ownership of the NFT (representing that pole) is transferred from the current owner’s NFT account to the active inspector’s NFT account on the XRP Ledger.  Thus, a time sequenced record of inspection activity for each pole is maintained on the XRP Ledger.  Metadata gets merged into the ever growing ‘XRPL_Master_GeoJSON’ file stored in IPFS.
+  Note: this functionality is not activated in the demo
+
 
 ## GeoJSON
 Use this space to show useful examples of how a project can be use
@@ -109,3 +126,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/xrpl_grant.png
+[product-screenshot2]: images/xrpl_grant2.png
