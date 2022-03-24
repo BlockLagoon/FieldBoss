@@ -7,6 +7,13 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
+    <li><a href="#what-is-fieldboss">What Is FieldBoss</a></li>
+    <li>
+      <a href="#what-is-a-geo-located-nft">What Is A Geo-Located NFT</a>
+      <ul>
+        <li><a href="#geojson">Schema</a></li>
+      </ul>
+    </li>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -28,15 +35,17 @@
   </ol>
 </details>
 
+## What Is FieldBoss
+FieldBoss is a software tool developed for mobile devices that merges blockchain technology with popular open source GIS mapping applications through the use of geo-located XRPL NFTs.  With FieldBoss, mobile GIS applications are extended to include the real-time tokenization of 2d/3d unique geometries collected by field crews via GPS. 
+
+## What Is A Geo-Located NFT
+Geo-located XRPL NFTs adhere to the GeoJSON spatial data standard recognized by most GIS mapping applications which provides interoperability between FieldBoss and GIS.  Geometries can be point line or poly
+
 ## About The Project
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+To demonstrate the use of geo-located NFTs in field mapping applications for the collection of immutable information via form entry, GPS, photos, and IoT.  
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Here we present a FieldBoss use case showing how geo-located NFTs created on the XRPL Ledger could be used in a mobile field mapping application that performs and manages routine inspections of utility poles in a municipal district.  Point geometries (poles) on the map represent NFTs which store the inspection history of each pole (inspector, date, account).  Metadata in IPFS stores the inspection data for each pole including all previous inspections.  The metadata is linked to the NFT via a common field.  Geo-located NFTs are transferred as non-payable transactions from the previous inspector to current inspector during a utility pole inspection resulting in an immutable inspection history for each pole
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 ![Product Name Screen Shot][product-screenshot]
 
 ### Built With
@@ -60,7 +69,11 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 ## Usage
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+***Note***
+*	This proof of concept is built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
+*	This application is fully integrated with Pinata/IPFS for GeoJSON upload and download.  However, to avoid wait times, a local GeoJSON file is being used as the metadata source (config.geojson).
+*	This POC demo has been pre-loaded with 3 XRPL NFT accounts on NFT-Devnet.  Each account has several geo-located NFTs already minted as shown on the map.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## GeoJSON
