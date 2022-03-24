@@ -69,8 +69,9 @@ The ***XRPL_FieldBoss.html*** web page will serve as a demo to show the function
    * FireFox  
    * Edge
 * Required files and folders for the web page are found in the XRPL_Wave3 github repo.  Download these files/folder and group them into a folder created on the local drive of your computer.  The **XRPL_FieldBoss.html** file will be executed from there.
-* Or, download the zip file (**XRPL_FieldBoss.zip**) which is a folder containing all of the required files.
-* An easy method for downloading files from a github repo is using **DownGit**   https://downgit.github.io  (https://github.com/BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip)
+* Or, download the zip file (**XRPL_FieldBoss.zip**) from the repo which is a folder containing all of the required files.
+* An easy method for downloading files from a github repo is using **DownGit**   https://downgit.github.io   
+Use 'https' + 'BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip' as the GitHub file for DownGit
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
