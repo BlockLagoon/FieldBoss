@@ -54,7 +54,7 @@ Here we present a FieldBoss use case showing how geo-located NFTs created on the
 ### Built With
 * [Leaflet.js](https://leafletjs.com/) – a popular open source JavaScript library for building web mapping applications
 * [xrpl.js](https://xrpl.org/)
-* [XRP Ledger](https://xrpl.org - NFT Devnet
+* XRP Ledger(https://xrpl.org - NFT Devnet
 * [Pinata](https://https://www.pinata.cloud/)
 * [IPFS](https://https://www.ipfs.io/)
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -69,7 +69,7 @@ The ***XRPL_FieldBoss.html*** web page will serve as a demo to show the function
    * FireFox  
    * Edge
 * Required files and folders for the web page are found in the XRPL_Wave3 github repo.  Download these files/folder and group them into a folder created on the local drive of your computer.  The **XRPL_FieldBoss.html** file will be executed from there.
-* Or, download the zip file (**XRPL_FieldfBoss.zip**) which is a folder containing all of the required files.
+* Or, download the zip file (**XRPL_FieldBoss.zip**) which is a folder containing all of the required files.
 * An easy method for downloading files from a github repo is using **DownGit**   https://downgit.github.io/#/home
 <p align="right">(<a href="#top">back to top</a>)</p>
 
