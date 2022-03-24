@@ -23,7 +23,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -55,28 +54,30 @@ Here we present a FieldBoss use case showing how geo-located NFTs created on the
 ### Built With
 * [Leaflet.js](https://leafletjs.com/) – a popular open source JavaScript library for building web mapping applications
 * [xrpl.js](https://xrpl.org/)
-* [XRP Ledger](https://xrpl.org/) - NFT Devnet
+* [XRP Ledger](https://xrpl.org - NFT Devnet
 * [Pinata](https://https://www.pinata.cloud/)
 * [IPFS](https://https://www.ipfs.io/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Getting Started
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-This is an example of how to list things you need to use the software and how to install them.
+The ***XRPL_FieldBoss.html*** web page will serve as a demo to show the functionality of the FieldBoss Utility Pole Inspection application described above.
 
 ### Installation
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+* Supported Browsers:  
+   * Chrome  
+   * FireFox  
+   * Edge
+* Required files and folders for the web page are found in the XRPL_Wave3 github repo.  Download these files/folder and group them into a folder created on the local drive of your computer.  The **XRPL_FieldBoss.html** file will be executed from there.
+* Or, download the zip file (**XRPL_FieldfBoss.zip**) which is a folder containing all of the required files.
+* An easy method for downloading files from a github repo is using **DownGit**   https://downgit.github.io/#/home
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Usage
 
 ### Notes
-*	The XRPL_FieldBoss.html web page is a proof of concept built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
+*	The ***XRPL_FieldBoss.html*** web page is a proof of concept built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
 *	This application is fully integrated with Pinata/IPFS for GeoJSON upload and download.  However, to avoid wait times, a local GeoJSON file is being used as the metadata source (config.geojson).
 *	This POC demo has been pre-loaded with 3 XRPL NFT accounts on NFT-Devnet.  Each account has several geo-located NFTs already minted as shown on the map.
 ![Product Name Screen Shot][product-screenshot2]
@@ -97,9 +98,9 @@ Use this space to show useful examples of how a project can be use
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
+- [ ] Add integration with IoT data sources
+- [ ] Develop standardized schemas and user interfaces for ease of deployment
+- [ ] Add integration with 3d scanned 'point clouds' and other big data
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
@@ -107,23 +108,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Scott Randolph - blocklagoon@gmail.com
+
+Instagram - [@blocklagoon](https://instagram.com/blocklagoon)
+
+Project Link: [https://github.com/blocklagoon/xrpl_wave3](https://github.com/blocklagoon/xrpl_wave3)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/xrpl_grant.png
 [product-screenshot2]: images/xrpl_grant2.png
