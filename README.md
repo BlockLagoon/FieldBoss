@@ -36,23 +36,22 @@
 </details>
 
 ## What Is FieldBoss
-FieldBoss is a software tool developed for mobile devices that merges blockchain technology with popular open source GIS mapping applications through the use of geo-located XRPL NFTs.  With FieldBoss, mobile GIS applications are extended to include the real-time tokenization of 2d/3d unique geometries collected by field crews via GPS. 
+FieldBoss is a software tool developed for mobile devices that merges blockchain technology with popular open source GIS mapping applications through the use of geo-located XRPL NFTs.  With FieldBoss, mobile GIS applications are extended to include the real-time tokenization of 2d/3d unique geometries collected by field crews via GPS.   By combining the analytical power of GIS (assets represented spatially) with the transparency, immutability, and security of blockchain technology we can show the spatial and temporal distribution of information which is securely stored on blockchain and distributed file systems.
 
 ## What Is A Geo-Located NFT
 Geo-located XRPL NFTs adhere to the GeoJSON spatial data standard recognized by most GIS mapping applications which provides interoperability between FieldBoss and GIS.  Geometries can be point line or poly
 
 ## About The Project
-To demonstrate the use of geo-located NFTs in field mapping applications for the collection of immutable information via form entry, GPS, photos, and IoT.  
-
 Here we present a FieldBoss use case showing how geo-located NFTs created on the XRPL Ledger could be used in a mobile field mapping application that performs and manages routine inspections of utility poles in a municipal district.  Point geometries (poles) on the map represent NFTs which store the inspection history of each pole (inspector, date, account).  Metadata in IPFS stores the inspection data for each pole including all previous inspections.  The metadata is linked to the NFT via a common field.  Geo-located NFTs are transferred as non-payable transactions from the previous inspector to current inspector during a utility pole inspection resulting in an immutable inspection history for each pole
 
 ![Product Name Screen Shot][product-screenshot]
 
 ### Built With
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
+* [Leaflet.js](https://leafletjs.com/) – a popular open source JavaScript library for building web mapping applications
+* [xrpl.js](https://xrpl.org/)
+* [XRP Ledger](https://xrpl.org/) - NFT Devnet
+* [Pinata](https://https://www.pinata.cloud/)
+* [IPFS](https://https://www.ipfs.io/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -73,7 +72,7 @@ _Below is an example of how you can instruct your audience on installing and set
 *	This proof of concept is built as a desktop application for the purpose of demonstration but will be ultimately deployed on GPS enabled mobile field devices running Android and/or iOS operating systems.
 *	This application is fully integrated with Pinata/IPFS for GeoJSON upload and download.  However, to avoid wait times, a local GeoJSON file is being used as the metadata source (config.geojson).
 *	This POC demo has been pre-loaded with 3 XRPL NFT accounts on NFT-Devnet.  Each account has several geo-located NFTs already minted as shown on the map.
-
+![Product Name Screen Shot][product-screenshot]
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## GeoJSON
