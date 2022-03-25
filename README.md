@@ -82,7 +82,6 @@ Use 'https' + 'BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip' as the GitHu
 *	This application is fully integrated with Pinata/IPFS for GeoJSON upload and download.  However, to avoid wait times, a local GeoJSON file is being used as the metadata source (config.geojson).
 *	This POC demo has been pre-loaded with 3 XRPL NFT accounts on NFT-Devnet.  Each account has several geo-located NFTs already minted as shown on the map.
 ![Product Name Screen Shot][product-screenshot2]
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Navigating the UI
 1.	At all times there will be an active inspector which represents the XRPL NFT account that will be performing any inspections.  The default account is Inspector 1.  Reset with @
@@ -103,6 +102,7 @@ Below is the metadata of a single XRPL geo-located NFT in the GeoJSON format.
 
 ## Roadmap
 - [ ] Add integration with IoT data sources
+- [ ] Build mobile FieldBoss application using xrpl4j Java library
 - [ ] Develop standardized schemas and user interfaces for ease of deployment
 - [ ] Add integration with 3d scanned 'point clouds' and other big data
 <p align="right">(<a href="#top">back to top</a>)</p>
