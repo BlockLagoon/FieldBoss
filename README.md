@@ -119,4 +119,4 @@ Project Link: [https://github.com/blocklagoon/xrpl_wave3](https://github.com/blo
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot]: images/xrpl_grant.png
-[product-screenshot2]: images/xrpl_grant2.png
+[product-screenshot2]: images/xrpl_grant3.png
