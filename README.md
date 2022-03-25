@@ -33,7 +33,7 @@
         <li><a href="#navigating-the-ui">Navigating the UI</a></li>
       </ul>
     </li>
-     <li><a href="#usage">GeoJSON</a></li>
+     <li><a href="#geojson">GeoJSON</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -94,9 +94,11 @@ Use 'https' + 'BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip' as the GitHu
   Note: this functionality is not activated in the demo
   
 4. **Camera** allows the active inspector to include any relevant photos to an inspection record.  Photos get included in the metadata of the inspection record.  Best suited for mobile field devices.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## GeoJSON
-Use this space to show useful examples of how a project can be use
+Below is the metadata of a single XRPL geo-located NFT in the GeoJSON format.
+![Product Name Screen Shot][product-screenshot3]
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
@@ -121,3 +123,4 @@ Project Link: [https://github.com/blocklagoon/xrpl_wave3](https://github.com/blo
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot]: images/xrpl_grant.png
 [product-screenshot2]: images/xrpl_grant3.png
+[product-screenshot3]: images/geojson.png
