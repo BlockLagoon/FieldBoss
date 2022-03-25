@@ -59,7 +59,6 @@ Here we present a FieldBoss use case showing how geo-located NFTs created on the
 * [IPFS](https://https://www.ipfs.io/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ## Getting Started
 The ***XRPL_FieldBoss.html*** web page will serve as a demo to show the functionality of the FieldBoss Utility Pole Inspection application described above.
 
@@ -74,7 +73,6 @@ The ***XRPL_FieldBoss.html*** web page will serve as a demo to show the function
 Use 'https' + 'BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip' as the GitHub file for DownGit
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ## Usage
 
 ### Notes
@@ -87,12 +85,13 @@ Use 'https' + 'BlockLagoon/XRPL_Wave3/blob/main/XRPL_FieldBoss.zip' as the GitHu
 ### Navigating the UI
 1.	At all times there will be an active inspector which represents the XRPL NFT account that will be performing any inspections.  The default account is Inspector 1.  Reset with @
 2.	The active inspector has two options for interacting with the map:	
-    * 'View Existing' allows the active inspector to click on a pole feature (NFT) on the map and review the results (metadata) of the most recent inspection for that pole and to view details of the NFT in the XRPL Explorer.  Any photos stored with the metadata of that NFT will be displayed in the image pane on the form.
+    * **View Existing** allows the active inspector to click on a pole feature (NFT) on the map and review the results (metadata) of the most recent inspection for that pole and to view details of the NFT in the XRPL Explorer.  Any photos stored with the metadata of that NFT will be displayed in the image pane on the form.
 
-    * 'Add New Pole' allows the active inspector to place a new pole on the map with a mouse click.  This will be performed via GPS in the mobile version.  The inspection form is completed and upon SUBMIT a new pole (geo-located NFT) is created on the XRP Ledger residing in the active inspector’s account.  Data from the inspection form becomes the NFT’s metadata and is stored as GeoJSON in IPFS. 
-3.	'Add New Inspection' is activated when an existing pole is selected on the map.  This tool allows the active inspector to create a new inspection record for that pole at the current date and time.  Upon SUBMIT, the form is updated with the current data and ownership of the NFT (representing that pole) is transferred from the current owner’s NFT account to the active inspector’s NFT account on the XRP Ledger.  Thus, a time sequenced record of inspection activity for each pole is maintained on the XRP Ledger.  Metadata gets merged into the ever growing ‘XRPL_Master_GeoJSON’ file stored in IPFS.
+    * **Add New Pole** allows the active inspector to place a new pole on the map with a mouse click.  This will be performed via GPS in the mobile version.  The inspection form is completed and upon SUBMIT a new pole (geo-located NFT) is created on the XRP Ledger residing in the active inspector’s account.  Data from the inspection form becomes the NFT’s metadata and is stored as GeoJSON in IPFS. 
+3.	**Add New Inspection** is activated when an existing pole is selected on the map.  This tool allows the active inspector to create a new inspection record for that pole at the current date and time.  Upon SUBMIT, the form is updated with the current data and ownership of the NFT (representing that pole) is transferred from the current owner’s NFT account to the active inspector’s NFT account on the XRP Ledger.  Thus, a time sequenced record of inspection activity for each pole is maintained on the XRP Ledger.  Metadata gets merged into the ever growing ‘XRPL_Master_GeoJSON’ file stored in IPFS.
   Note: this functionality is not activated in the demo
-
+  
+4. **Camera** allows the active inspector to include any relevant photos to an inspection record.  Photos get included in the metadata of the inspection record.  Best suited for mobile field devices.
 
 ## GeoJSON
 Use this space to show useful examples of how a project can be use
