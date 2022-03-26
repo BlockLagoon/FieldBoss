@@ -101,10 +101,10 @@ Below is the metadata of a single XRPL geo-located NFT in the GeoJSON format.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
-- [ ] Add integration with IoT data sources
-- [ ] Build mobile FieldBoss application using xrpl4j Java library
-- [ ] Develop standardized schemas and user interfaces for ease of deployment
-- [ ] Add integration with 3d scanned 'point clouds' and other big data
+* Add integration with IoT data sources
+* Build mobile FieldBoss application using xrpl4j Java library
+* Develop standardized schemas and user interfaces for ease of deployment
+* Add integration with 3d scanned 'point clouds' and other big data
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
