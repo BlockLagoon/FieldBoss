@@ -56,7 +56,7 @@ Here we present a FieldBoss use case showing how geo-located NFTs created on the
 ### Built With
 * [Leaflet.js](https://leafletjs.com/) – a popular open source JavaScript library for building web mapping applications
 * [xrpl.js](https://xrpl.org/)
-* XRP Ledger(https://xrpl.org - NFT Devnet
+* XRP Ledger(https://xrpl.org - NFT Devnet)
 * [Pinata](https://https://www.pinata.cloud/)
 * [IPFS](https://https://www.ipfs.io/)
 <p align="right">(<a href="#top">back to top</a>)</p>
