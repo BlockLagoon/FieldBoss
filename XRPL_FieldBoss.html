@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Utility Pole Inspection</title>
+	<link rel="stylesheet" type="text/css" href="./src/styles/index.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/geojson/0.5.0/geojson.min.js"></script>
+	<script src="./src/geojson_merge.js"></script>
+	<script src="./src/scripts/pinata.js"></script>
+	<script src="./src/scripts/xrpl.js"></script>
+	<script src="./src/config.geojson"></script>
+</head>
+
+<body onload="InitialLoad()">
+	<div id="themap" class="mymap"></div>
+	<div id="inspection_form" , class="theform" id="dcalc">
+		<div>
+			<label id="activ">Active Inspector (XRPL NFT account)</label>
+			<img id="btn_reset" src="src/img/reset.png" onclick="resetInsp()"
+				style="position:absolute; top:8px; height:25; width:25px; right:8px;">
+			<label id="acct1label" style="position:absolute; top:40px; left:75px;">Inspector 1</label>
+			<label id="acct2label" style="position:absolute; top:72px; left:75px;">Inspector 2</label>
+			<label id="acct3label" style="position:absolute; top:102px; left:75px;">Inspector 3</label>
+			<input type="radio" id="acct1" name="pole_acct" onclick="SetInspector(acct1label.id, 0)"
+				style="position:absolute; left:20px; top:40px;"><span class="dot"
+				style="margin-top: 12px; background-color: red;"></span></input><br>
+			<input type="radio" id="acct2" name="pole_acct" onclick="SetInspector(acct2label.id, 1)"
+				style="position:absolute; left:20px; top:70px;"><span class="dot"
+				style="margin-top: 9px; background-color: blue;"></span></input><br>
+			<input type="radio" id="acct3" name="pole_acct" onclick="SetInspector(acct3label.id, 2)"
+				style="position:absolute; left:20px; top:100px;"><span class="dot"
+				style="margin-top: 7px; background-color: green;"></span></input>
+		</div>
+		<div>
+			<button id="btn_inspectexisting" style="left:15px;" onclick="BtnExisting(this.id)">View Existing</button>
+			<button id="btn_newpole" style="right:15px; background: #5aa15c;" onclick="BtnNew(this.id)">Add New
+				Pole</button>
+		</div>
+		<div>
+			<label for="poleid" style="position:absolute; top:189px; left:10px; font-weight: bold;">Pole ID:</label>
+			<input type="text" id="poleid" size="22"
+				style="position:absolute; height:25px; width:90px; left:73px; top:184px; color:blue; font-size: 17px; font-weight: bold;"
+				disabled>
+			<button id="btn_newinsp" class="btn_new" onclick="newInsp()"
+				style="position:absolute; width:135px; top:189px; right:13px;" disabled>Add New Inspection</button>
+		</div>
+		<div>
+			<label for="inspdate" style="position:absolute; top:218px; left:10px; font-weight: bold;">Inspection
+				Date:</label>
+			<input type="text" id="inspdate" size="19"
+				style="position:absolute; top:213px; height:25px; width:173px; left:128px; color:blue; font-size: 15px; font-weight: bold;"
+				disabled>
+		</div>
+		<div>
+			<label for="integrity" style="position:absolute; top:247px; left:10px; font-weight: bold;">Pole
+				Integrity:</label>
+			<select id="integrity" name="integrity"
+				style="position:absolute; width:185px; height:25px; right:12px; top:241px; color:blue; font-size: 17px; font-weight: bold;"
+				disabled>
+				<option value=""></option>
+				<option value="Good">Good</option>
+				<option value="Fair">Fair</option>
+				<option value="Replace">Replace</option>
+			</select><br><br>
+		</div>
+		<div>
+			<label for="setcondition" style="position:absolute; top:275px; left:10px; font-weight: bold;">Setting
+				Condition:</label>
+			<select id="setcondition" name="setcondition"
+				style="position:absolute; width:160px; height:25px; right:12px; top:270px; color:blue; font-size: 17px; font-weight: bold;"
+				disabled>
+				<option value=""></option>
+				<option value="Good">Good</option>
+				<option value="Fair">Fair</option>
+				<option value="Poor">Poor</option>
+			</select><br><br>
+		</div>
+		<div>
+			<label for="trtcondition" style="position:absolute; top:304px; font-weight: bold;">Treatment
+				Condition:</label>
+			<select id="trtcondition" name="trtcondition"
+				style="position:absolute; width:140px; height:25px; right:12px; top:299px; color:blue; font-size: 17px; font-weight: bold;"
+				disabled>
+				<option value=""></option>
+				<option value="Good">Good</option>
+				<option value="Fair">Fair</option>
+				<option value="Poor">Poor</option>
+			</select><br>
+		</div>
+		<div>
+			<label for="splintering" style="position:absolute; top:333px; font-weight: bold;">Splintering:</label>
+			<select id="splintering" name="splintering"
+				style="position:absolute; width:203px; height:25px; right:12px; top:328px; color:blue; font-size: 17px; font-weight: bold;"
+				disabled>
+				<option value=""></option>
+				<option value="No">No</option>
+				<option value="Yes">Yes</option>
+			</select><br>
+			<div>
+				<label for="leaning" style="position:absolute; top:362px; font-weight: bold;">Leaning
+					Excessively:</label>
+				<select id="leaning" name="sleaning"
+					style="position:absolute; width:143px; height:25px; right:12px; top:357px; color:blue; font-size: 17px; font-weight: bold;"
+					disabled>
+					<option value=""></option>
+					<option value="No">No</option>
+					<option value="Yes">Yes</option>
+				</select><br>
+			</div>
+			<div>
+				<label for="inspector" style="position:absolute; top:391px; font-weight: bold;">Inspector Name:</label>
+				<input type="text" id="inspector" size="15"
+					style="position:absolute; width:173px; right:12px; height:25px; top:386px; color:blue; font-size: 17px; font-weight: bold;"
+					disabled><br>
+			</div>
+			<div>
+				<label for="contractor" style="position:absolute; top:420px; font-weight: bold;">Contractor:</label>
+				<select id="contractor" name="contractor"
+					style="position:absolute; width:205px; height:25px; right:12px; top:415px; color:blue; font-size: 17px; font-weight: bold;"
+					disabled>
+					<option value=""></option>
+					<option value="No">No</option>
+					<option value="Yes">Yes</option>
+				</select><br>
+			</div>
+			<div>
+				<label for="long" style="position:absolute; top:450px;">X:</label>
+				<input type="text" id="lng" name="long" size="15"
+					style="position:absolute; width:125px; left:31px; top:445px;" disabled>
+				<label for="lat" style="position:absolute; width:125px; right:32px; top:450px;">Y:</label>
+				<input type="text" id="lat" name="lat" size="15"
+					style="position:absolute; width:125px; right:13px; top:445px;" disabled>
+			</div><br>
+			<div>
+				<button id="btn_camera" onclick="SetCamera()" disabled>Camera</button>
+				<button id="btn_setinsp" onclick="SetInspection()" disabled>Submit</button>
+			</div>
+			<canvas id="myCanvas" width="130" height="90"
+				style="position:absolute; border:1px solid #000000; left:18px; bottom:42px;"></canvas>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="./src/index.js"></script>
+</body>
+</html>
