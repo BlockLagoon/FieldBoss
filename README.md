@@ -6,7 +6,6 @@ _**FieldBoss**_ is a prototype GIS application that incorporates Distributed Led
 ![image info](./img/fieldboss.jpg)
 
 Table of Contents
-
 1.  [What Is FieldBoss](#what-is-fieldboss)
 2.  [What Is A Geo-Located NFT](#what-is-a-geo-located-nft)
 3.  [A FieldBoss Use Case](#about-the-project)
