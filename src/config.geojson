@@ -1,0 +1,665 @@
+master_XRPL = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92254495620729,
+          39.606432117139896
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-00",
+        "inspector": "Inspector 1",
+        "integrity": "Good",
+        "setcondition": "Poor",
+        "trtcondition": "Good",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-22 20:3:0",
+        "txhash": "8940080430D14B406CD0124C2BF521C094958E8E503CE963CC6FE1BCFF27FF42"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92057085037231,
+          39.606415585252954
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-01",
+        "inspector": "Inspector 1",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-22 20:5:2",
+        "txhash": "B277F77A6D0F524C2127B44B9855D2CA7EBBC4038A1E09A5BD69F1FCB7DC44A4"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.91921901702881,
+          39.606779285853484
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-02",
+        "inspector": "Inspector 1",
+        "integrity": "Replace",
+        "setcondition": "Poor",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-22 20:6:39",
+        "txhash": "5DC351D92F587352DF06AEF47884E701FDA1A657B12FDB4B6C7D4E9209CF3261"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92263078689577,
+          39.60542366481455
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-03",
+        "inspector": "Inspector 1",
+        "integrity": "Fair",
+        "setcondition": "Good",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-22 20:8:21",
+        "txhash": "D059F0EBD6259C15286E6284EB6BFDA476EDE47C8BDA4B653B2BC6727F751984"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92265224456789,
+          39.604679715160984
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-04",
+        "inspector": "Inspector 1",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-22 20:10:2",
+        "txhash": "2627B0C1F4BCCF6A008A2ED451F8DBD2D4AE3AFBA12F4CD537AF2DC9D80A1A6D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92057085037231,
+          39.60466318285565
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-05",
+        "inspector": "Inspector 1",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-22 20:12:47",
+        "txhash": "1D25FF5206B5298A12AB3CD4EB193C259D798C8AA293373D16F5281EFD60119A"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.91913318634035,
+          39.60466318285565
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-06",
+        "inspector": "Inspector 1",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 7:56:30",
+        "txhash": "E933EE763338D747381780DCCCCEC81EAF2039D12546F7805F259F2025E2A21F"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92022752761841,
+          39.60378696502641
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-07",
+        "inspector": "Inspector 1",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Poor",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 7:58:10",
+        "txhash": "652B61F96E08E556A58D720449A10E6FE6D5EBDC10C86B1CD0C326AE97511C05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.91883277893066,
+          39.603555509409055
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-08",
+        "inspector": "Inspector 1",
+        "integrity": "Fair",
+        "setcondition": "Good",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:0:2",
+        "txhash": "7F4B4B50ECE65C01DCA771C9CDB3CD72A5380A851519D1BD3EB38C6CB2B6C35D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.91838216781618,
+          39.6028942033825
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-09",
+        "inspector": "Inspector 1",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:1:44",
+        "txhash": "C4375BBFAE27CD0F95C8B735C61990735BA4C51831D853479BD102B4E02BB36F"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.9311923980713,
+          39.607556276190905
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-010",
+        "inspector": "Inspector 2",
+        "integrity": "Good",
+        "setcondition": "Poor",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:4:6",
+        "txhash": "EECD4E8C282E8ED449EE9F54537286C1720FD6AD60D921C4DBF1E928D2639088"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.93160009384157,
+          39.60648171277697
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-011",
+        "inspector": "Inspector 2",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:6:22",
+        "txhash": "50AC0ECF9680FF7C048AF9C97103E78B80BC700F64C97F53CEA64FAD86F72F4B"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.93162155151369,
+          39.605473261173934
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-012",
+        "inspector": "Inspector 2",
+        "integrity": "Good",
+        "setcondition": "Good",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-23 8:9:13",
+        "txhash": "3B748BD7EE1613D7D4DCEFE4226315B471A281660FF76506457E49DBD77A2AC3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.93149280548097,
+          39.60454745660803
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-013",
+        "inspector": "Inspector 2",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Poor",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:10:57",
+        "txhash": "2DB1FC037A9AAC8AEC3C79B839761A3076ACDD1DD7CAD15C71962874DEE14D5B"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.93076324462892,
+          39.603869627559405
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-014",
+        "inspector": "Inspector 2",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:12:48",
+        "txhash": "E37448947A858DB1E11F06817B070F4EB5B26A5085F7A0CF662C822AF5D1811A"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.93024826049806,
+          39.60486157025881
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-015",
+        "inspector": "Inspector 2",
+        "integrity": "Fair",
+        "setcondition": "Good",
+        "trtcondition": "Good",
+        "splintering": "Yes",
+        "leaning": "No",
+        "contractor": "No",
+        "date": "2022-3-23 8:15:14",
+        "txhash": "9CD54A030C999893977B137E3C6903D72D714D790B4C6397F6F3AB693605F899"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92977619171144,
+          39.60587003077022
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-016",
+        "inspector": "Inspector 2",
+        "integrity": "Replace",
+        "setcondition": "Poor",
+        "trtcondition": "Poor",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:16:56",
+        "txhash": "FC9DEA7BB93F73B6E3F2AABE7514811E345428EC337B7871B904E82ED6141023"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92891788482667,
+          39.606580903944575
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-017",
+        "inspector": "Inspector 2",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:18:41",
+        "txhash": "DFCF70F8C54AEA71D1588E9ACDBA1F75DB3E6BEDB94D501AD67885081E9F85BB"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92767333984376,
+          39.60686194481446
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-018",
+        "inspector": "Inspector 2",
+        "integrity": "Fair",
+        "setcondition": "Poor",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:21:40",
+        "txhash": "F624CA114E4FFD628267651E52ACBFDFDE88A424F965DC96A471E1F2D8E89D68"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92645025253297,
+          39.60734136484221
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-019",
+        "inspector": "Inspector 2",
+        "integrity": "Good",
+        "setcondition": "Poor",
+        "trtcondition": "Good",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "No",
+        "date": "2022-3-23 8:23:45",
+        "txhash": "552947FB3277579B5D4695599F928177FBF0E9688B6A1AA56E34D654B5954C0D"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92305994033813,
+          39.6028942033825
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-020",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Good",
+        "trtcondition": "Good",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-23 8:26:6",
+        "txhash": "9FD50F1FA11C9DA2D9BD02B3B0EA4FCCDF8E149BCD9B0441775B1473CCC8674B"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92456197738649,
+          39.602828072432544
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-021",
+        "inspector": "Inspector 3",
+        "integrity": "Replace",
+        "setcondition": "Poor",
+        "trtcondition": "Poor",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "No",
+        "date": "2022-3-23 8:28:19",
+        "txhash": "8E91902329884FF1F112B9DDAE72FDA505A095B6601FDE080BDC4B3B20B0BCE8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92584943771362,
+          39.602844605175946
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-022",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:30:41",
+        "txhash": "890E8703856833CA6324961D799D90AD0C5E3B5D69A29E795791A41842C89432"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92303848266602,
+          39.60148890710807
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-023",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Poor",
+        "trtcondition": "Poor",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:32:56",
+        "txhash": "725F36E606BF44FA5859421C109660E6FCE51E397D2AEBD87883F6A6D9BC52C8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.9230170249939,
+          39.60038118288826
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-024",
+        "inspector": "Inspector 3",
+        "integrity": "Fair",
+        "setcondition": "Poor",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:35:42",
+        "txhash": "6CB3E1B34BC0E44DA6143B5843CBF164445F8A2F62D5675632FD2C30C1633D83"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92486238479616,
+          39.600678782180445
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-025",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Poor",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:38:19",
+        "txhash": "DAC6342C473ED15E65BECF6A50ECCE626F1817E49C70021F18697799587D98E6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92593526840211,
+          39.60145584096999
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-026",
+        "inspector": "Inspector 3",
+        "integrity": "Fair",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "No",
+        "date": "2022-3-23 8:40:52",
+        "txhash": "EF3A445B602DB14F102014BBD395ECEC91179B05991104842DE6635BB473C711"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92709398269655,
+          39.60148890710807
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-027",
+        "inspector": "Inspector 3",
+        "integrity": "Replace",
+        "setcondition": "Poor",
+        "trtcondition": "Poor",
+        "splintering": "No",
+        "leaning": "No",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:42:58",
+        "txhash": "69B0ED04FE04E433B6FD94FCED7FA5616FF51031C9C65968DC64A064F667BD32"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92842435836793,
+          39.601555039336866
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-028",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Good",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:45:18",
+        "txhash": "577C8E4D946996255E6CBD442BCBD1F0608EEEDE1DFDBD8085B65966CA57BB11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.92713689804079,
+          39.60294380155356
+        ]
+      },
+      "properties": {
+        "poleid": "UTP-029",
+        "inspector": "Inspector 3",
+        "integrity": "Good",
+        "setcondition": "Fair",
+        "trtcondition": "Fair",
+        "splintering": "Yes",
+        "leaning": "Yes",
+        "contractor": "Yes",
+        "date": "2022-3-23 8:47:28",
+        "txhash": "6AC51A09E9FEC75BB667627FD931011404299947325400EA1AE83952C85FE133"
+      }
+    }
+  ]
+}
