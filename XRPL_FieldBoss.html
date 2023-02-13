@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Utility Pole Inspection</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/geojson/0.5.0/geojson.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="./geojson_merge.js"></script>
+<script src="./pinata.js"></script>
+<script src="./xrpl.js"></script>
+<script type="text/javascript" src="./config.geojson"></script>
+
+<style>
+    input[type=text], select {
+        padding: 1px 1px;
+        margin: 4px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    div.mymap {
+        position: absolute;
+		left: 90px;
+        width: 900px;
+        height: 600px;
+        border: 3px solid #73AD21;
+        border-radius: 2px;
+        background-color: #f2f2f2;
+        padding: 10px;
+    } 
+    div.theform {
+        position: absolute;
+        top: 8px;
+        left: 1013px;
+        width: 300px;
+        height: 600px;
+        border: 3px solid #73AD21;
+        border-radius: 2px;
+        background-color: #f2f2f2;
+        padding: 10px;
+    }  
+
+	.leaflet-popup-content-wrapper, .leaflet-popup.tip {
+ 		background-color: rgb(204, 211, 137);
+		height: 35px;
+		border: 1px solid black;
+	}
+
+	#btn_inspectexisting, #btn_newpole {
+		position:absolute; 
+		top: 138px; 
+		background-color: #7ad67d;
+    	color: white;
+    	padding: 8px 25px;
+  		border: 1px solid black;
+  		border-radius: 5px;
+  		cursor: pointer;
+	}
+
+	#btn_setinsp {
+		position:absolute; 
+		color:grey; 
+		background:rgb(230, 223, 223); 
+		padding: 8px 25px;
+		bottom:80px; 
+		height:55; 
+		width:120px; 
+		right:25px;
+		border: 1px solid black;
+  		border-radius: 5px;
+  		cursor: pointer;
+		text-align: center;
+        font-size: 15px;
+	}
+
+	#btn_camera {
+		position:absolute; 
+		bottom:15px; 
+		height:45; 
+		width:80px; 
+		left:18px;
+		border: 1px solid black;
+  		border-radius: 3px;
+  		cursor: pointer;
+	}
+
+	.dot {
+  		height: 17px;
+  		width: 17px;
+		margin-left: 40px;
+  		border-radius: 50%;
+  		display: inline-block;
+	}
+
+	#btn_reset:hover, #btn_reset:focus
+	{
+ 		cursor: pointer;
+	}
+
+	#activ {
+		font: 15px Arial;
+		font-weight: bold;
+	}
+</style>
+</head>
+<body onload="InitialLoad()">
+  	<div id = "themap" class = "mymap"></div>
+  	<div id="inspection_form", class = "theform" id="dcalc">
+		<div>
+			<label id="activ">Active Inspector (XRPL NFT account)</label>
+			<img id="btn_reset" src="img/reset.png" onclick="resetInsp()"style="position:absolute; top:8px; height:25; width:25px; right:8px;">
+			<label id="acct1label" style="position:absolute; top:40px; left:75px;">Inspector 1</label>
+			<label id="acct2label" style="position:absolute; top:72px; left:75px;">Inspector 2</label>
+			<label id="acct3label" style="position:absolute; top:102px; left:75px;">Inspector 3</label>
+			<input type="radio" id="acct1" name="pole_acct" onclick="SetInspector(acct1label.id, 0)" style="position:absolute; left:20px; top:40px;"><span class="dot" style="margin-top: 12px; background-color: red;"></span></input><br>
+            <input type="radio" id="acct2" name="pole_acct" onclick="SetInspector(acct2label.id, 1)" style="position:absolute; left:20px; top:70px;"><span class="dot" style="margin-top: 9px; background-color: blue;"></span></input><br>
+			<input type="radio" id="acct3" name="pole_acct" onclick="SetInspector(acct3label.id, 2)" style="position:absolute; left:20px; top:100px;"><span class="dot" style="margin-top: 7px; background-color: green;"></span></input>
+		</div>    
+        <div>
+            <button id="btn_inspectexisting" style="left:15px;" onclick="BtnExisting(this.id)">View Existing</button>
+            <button id="btn_newpole" style="right:15px; background: #5aa15c;" onclick="BtnNew(this.id)">Add New Pole</button>       
+        </div>
+        <div>
+            <label for="poleid" style="position:absolute; top:189px; left:10px; font-weight: bold;">Pole ID:</label>
+			<input type="text" id="poleid" size="22" style="position:absolute; height:25px; width:90px; left:73px; top:184px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+            <button id="btn_newinsp" class = "btn_new" onclick="newInsp()" style="position:absolute; width:135px; top:189px; right:13px;" disabled>Add New Inspection</button>
+        </div>
+        <div>
+			<label for="inspdate" style="position:absolute; top:218px; left:10px; font-weight: bold;">Inspection Date:</label>
+            <input type="text" id="inspdate" size="19" style= "position:absolute; top:213px; height:25px; width:173px; left:128px; color:blue; font-size: 15px; font-weight: bold;" disabled>
+        </div>
+        <div>
+            <label for="integrity" style="position:absolute; top:247px; left:10px; font-weight: bold;">Pole Integrity:</label>
+            <select id="integrity" name="integrity" style="position:absolute; width:185px; height:25px; right:12px; top:241px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+                <option value=""></option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Replace">Replace</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label for="setcondition" style="position:absolute; top:275px; left:10px; font-weight: bold;">Setting Condition:</label>
+            <select id="setcondition" name="setcondition" style="position:absolute; width:160px; height:25px; right:12px; top:270px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+                <option value=""></option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select><br><br>
+        </div>
+        <div>
+            <label for="trtcondition" style="position:absolute; top:304px; font-weight: bold;">Treatment Condition:</label>
+            <select id="trtcondition" name="trtcondition" style="position:absolute; width:140px; height:25px; right:12px; top:299px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+                <option value=""></option>
+                   <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                   <option value="Poor">Poor</option>
+            </select><br>
+        </div>
+        <div>
+			<label for="splintering" style="position:absolute; top:333px; font-weight: bold;">Splintering:</label>
+			<select id="splintering" name="splintering" style="position:absolute; width:203px; height:25px; right:12px; top:328px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+				<option value=""></option>
+				<option value="No">No</option>
+				<option value="Yes">Yes</option>
+			</select><br>
+		<div>
+			<label for="leaning" style="position:absolute; top:362px; font-weight: bold;">Leaning Excessively:</label>
+			<select id="leaning" name="sleaning" style="position:absolute; width:143px; height:25px; right:12px; top:357px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+					<option value=""></option>
+					<option value="No">No</option>
+					<option value="Yes">Yes</option>
+			</select><br>
+		</div>
+		<div>
+			<label for="inspector" style="position:absolute; top:391px; font-weight: bold;">Inspector Name:</label>
+			<input type="text" id="inspector" size="15" style="position:absolute; width:173px; right:12px; height:25px; top:386px; color:blue; font-size: 17px; font-weight: bold;" disabled><br>
+		</div>
+		<div>
+			<label for="contractor" style="position:absolute; top:420px; font-weight: bold;">Contractor:</label>
+			<select id="contractor" name="contractor" style="position:absolute; width:205px; height:25px; right:12px; top:415px; color:blue; font-size: 17px; font-weight: bold;" disabled>
+				<option value=""></option>
+				<option value="No">No</option>
+				 <option value="Yes">Yes</option>
+			</select><br>
+		</div>
+        <div>
+            <label for="long" style="position:absolute; top:450px;">X:</label>
+            <input type="text" id="lng" name="long" size="15" style="position:absolute; width:125px; left:31px; top:445px;" disabled>
+            <label for="lat" style="position:absolute; width:125px; right:32px; top:450px;">Y:</label>
+            <input type="text" id="lat" name="lat" size="15" style="position:absolute; width:125px; right:13px; top:445px;" disabled>
+        </div><br>
+        <div>
+            <button id="btn_camera" onclick="SetCamera()" disabled>Camera</button>
+            <button id="btn_setinsp" onclick="SetInspection()" disabled>Submit</button>       
+        </div>
+		<canvas id="myCanvas" width="130" height="90" style="position:absolute; border:1px solid #000000; left:18px; bottom:42px;"></canvas>	
+  	</div>
+<script> 
+	//collection of secrets for the three XRPL nft user accounts in this app
+	const seedArray = ['shGJUUTB89D1ed1ncfLTEZB9KatE5', 'snkP3PGmJoQ3smGkekaU3pehjtdtH', 'snJf73Tstd6HHaJr2TH2tniU9apeG'];
+
+	//an object of key/value pairs for Inspector and related XRPL account
+	const inspAccounts = {
+		'Inspector_1' : 'rGFgCYjkcEG43h3Di7Z9PmK46PcSLvTDaX',
+		'Inspector_2' : 'rMxoweN9P5k5mfueBoR1NDhamN4ZRLJ6A6',
+		'Inspector_3' : 'rEZkdxkdJZ8oKG5JkgDQFJDrMUPLfRdrdn'
+	}
+
+	//create pinata instance
+    const pinata = myPinata('5a60eac7dc5dd69c42cf', 'e89b10e72176dd6514470465c2ce3929b1ed55f40e0b3c8383098deb032dc1e5');
+
+	//set variables for page elements
+	const _integrity = document.getElementById('integrity');
+	const _setcondition = document.getElementById('setcondition');
+	const _trtcondition = document.getElementById('trtcondition');
+	const _splintering = document.getElementById('splintering');
+	const _leaning = document.getElementById('leaning')
+	const _contractor = document.getElementById('contractor');
+	const _btnCamera = document.getElementById('btn_camera');
+	const _myCanvas = document.getElementById('myCanvas');
+	const _inspector = document.getElementById('inspector');
+	const _poleid = document.getElementById('poleid');
+	const _lat = document.getElementById('lat');
+	const _lng = document.getElementById('lng');
+	const _btnSetInsp = document.getElementById('btn_setinsp');
+	const _btnNewInsp = document.getElementById('btn_newinsp');
+	const _inspdate = document.getElementById('inspdate')
+	const _newPole = document.getElementById('btn_newpole');[]
+	const _existInsp = document.getElementById('btn_inspectexisting');
+	const _acct1 = document.getElementById('acct1');
+	const _acct2 = document.getElementById('acct2');
+	const _acct3 = document.getElementById('acct3');
+
+	//set array var for pole color
+	let poleColor = ['red', 'blue', 'green'];
+
+	//track number of pole features interactively added
+	let poleCount = 0;
+
+	//set current inspector - initially set to inspector 1
+	let myInspector = 'Inspector 1'
+
+	var colorIndex = 0;
+	var actionClick = 0;
+	var dataGeoJSON = null;
+	var tokenCount;
+
+	async function SetInspection(){ 
+		//validate user's entries
+		if (_integrity.value == "" ||
+			_setcondition.value == "" ||
+			_trtcondition.value == "" ||
+			_splintering.value == "" ||
+			_leaning.value == "" ||
+			_contractor.value == "") {alert("All fields are required"); return false} 
+
+		//get the current data in the form
+		const data = 
+			{poleid: _poleid.value, inspector: _inspector.value, integrity: _integrity.value, setcondition: _setcondition.value,
+			 trtcondition: _trtcondition.value, splintering: _splintering.value, leaning: _leaning.value,
+		 	contractor: _contractor.value, date: _inspdate.value, photo: _myCanvas.value, lat: _lat.value, lng: _lng.value}
+
+		//create a geoJSON from the data in the form and merge it with master_XRPL pulled down from IPFS
+		dataGeoJSON = GeoJSON.parse(data, { Point: ["lat", "lng"] });
+		
+		//ADDING A NEW POLE (NFT)
+		if (actionClick == 1) {    //button is in 'isclicked' state
+			//check that a point has been added to the map 
+			if (poleCount == 0){
+				alert('Add a single new pole feature to the map');
+				$('.leaflet-container').css('cursor','crosshair');
+				return;
+			}
+			//add to ipfs - the returned CID will be used to create the NFT
+			const body = dataGeoJSON
+			const options = {
+    			pinataMetadata: {
+					name: dataGeoJSON.properties.poleid,
+    			}
+			};
+			await PinToIPFS(body, options);
+		} 
+		poleCount = 0;
+	}
+
+	function PinToIPFS(bod, opt){
+		pinata.pinJSONToIPFS(bod, opt).then((result) => {
+			for(key in result) {
+        		if(result.hasOwnProperty(key)) {
+            		var value = result[key];
+            		break;
+        		}
+    		}
+			//create NFT for user selected account (inspector)
+			var mySeed = myInspector.charAt(myInspector.length - 1);
+			Create_NFT(value, seedArray[mySeed-1]);
+		}).catch((err) => {
+    		console.log(err);
+		});
+	}
+
+	async function Create_NFT(theURI, theSeed) {
+		_btnSetInsp.innerText = 'Waiting.....';
+		const wallet = myXRPL.Wallet.fromSeed(theSeed);
+		const client = new myXRPL.Client("wss://xls20-sandbox.rippletest.net:51233");
+		await client.connect();
+		console.log("Connected to XRP test blockchain")
+
+		const txJSON = {
+        	TransactionType: "NFTokenMint",
+        	Account: wallet.classicAddress,
+       		URI: myXRPL.convertStringToHex(theURI),
+        	Flags: parseInt('8'),
+        	TokenTaxon: 0
+    	}
+    	const tx = await client.submitAndWait(txJSON,{wallet});
+		console.log("NFT created");
+		client.disconnect();
+
+		//add the pole to the map and add all field attributes
+		AddProps(tx.result.hash);
+
+		//style the submit button
+    	_btnSetInsp.innerText = 'Completed';
+		_btnSetInsp.style.background= 'green';
+		_btnSetInsp.style.color= 'white';
+		_btnSetInsp.disabled = true;
+
+		_integrity.disabled = true;
+		_setcondition.disabled = true;
+		_trtcondition.disabled = true;
+		_splintering.disabled = true;
+		_leaning.disabled = true;
+		_contractor.disabled = true;
+
+		_existInsp.click();
+		actionClick = 1;
+	}
+
+	function AddProps(myHash){
+		var myLat = dataGeoJSON.geometry.coordinates[1];
+		var myLng = dataGeoJSON.geometry.coordinates[0];
+
+		//create a new pole on the map and assign it's field attributes as per dataGeoJSON
+		var newPole = new L.Circle([myLat, myLng]);
+		var feature = newPole.feature = newPole.feature || {};
+		feature.type = feature.type || "Feature";
+		var props = feature.properties = feature.properties || {};
+		props.poleid = dataGeoJSON.properties.poleid;
+		props.inspector = dataGeoJSON.properties.inspector;
+		props.photo = dataGeoJSON.properties.photo;
+		props.integrity = dataGeoJSON.properties.integrity;
+		props.setcondition = dataGeoJSON.properties.setcondition;
+		props.trtcondition = dataGeoJSON.properties.trtcondition;
+		props.splintering = dataGeoJSON.properties.splintering;
+    	props.leaning = dataGeoJSON.properties.leaning;
+    	props.contractor = dataGeoJSON.properties.contractor;
+		props.Xcoord = dataGeoJSON.geometry.coordinates[0];
+		props.Ycoord = dataGeoJSON.geometry.coordinates[1];
+		props.date = dataGeoJSON.properties.date;
+		props.photo = dataGeoJSON.properties.photo;
+		props.txhash = myHash;
+		addExistingPoles(newPole, props);
+	}
+
+	var mapOptions = {
+		center: [39.603427895266876, -104.92581277510011],
+		zoom: 16
+	}
+	 
+	// Creating a map object
+	var map = new L.map('themap', mapOptions);
+	var myRenderer = L.canvas({ padding: 0.5, tolerance: 25 });
+
+	// Creating a Layer object
+	var layer = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+	 
+	// Adding layer to the map with onclick event
+	map.addLayer(layer);
+	map.on('click', addMouseClick);
+
+	//get location on map of user click
+	function addMouseClick(event) {
+		if(document.getElementById('themap').style.cursor == 'crosshair') {
+			var mylat = event.latlng.lat;
+			var mylong = event.latlng.lng;
+			//add new pole with inspection
+			addNewPole(mylat, mylong)
+		} else {
+			//clear all data from form
+			_integrity.selectedIndex = 0;
+			_setcondition.selectedIndex = 0;
+			_trtcondition.selectedIndex = 0;
+			_splintering.selectedIndex = 0;
+			_leaning.selectedIndex = 0;
+			_contractor.selectedIndex = 0;
+			_poleid.value = '';
+			_inspector.value = '';
+			_inspdate.value = '';
+			_btnNewInsp.disabled = true;
+			const context = _myCanvas.getContext('2d');
+			context.clearRect(0, 0, _myCanvas.width, _myCanvas.height);
+		}
+	}
+
+	function addNewPole(myY, myX) {
+		var newPole = L.circle([myY, myX]);
+		var intjson = newPole.toGeoJSON();
+		var geojson2 = L.geoJson(intjson, {
+    		style: function(feature) {
+				return {color: poleColor[colorIndex]};
+    		},
+    		pointToLayer: function(feature, latlng) {
+        		return new L.Circle(latlng, {radius: 15, fillOpacity: 0.85, renderer: myRenderer});
+    		}
+		});
+		map.addLayer(geojson2);
+		$('.leaflet-container').css('cursor','');
+		poleCount++;
+		tokenCount++;
+		_lat.value = myY;
+		_lng.value = myX;
+	}
+
+	function SetPreviousInspection(myprops){
+		//this function gets called during the map pole click event
+		//it will populate the form with the data from the most recent inspection
+		if (myInspector == ""){
+			alert('Select an active Inspector.');
+			return false;
+		}
+
+		_poleid.value = myprops.poleid;
+		_integrity.value = myprops.integrity;
+		_setcondition.value = myprops.setcondition;
+		_trtcondition.value = myprops.trtcondition;
+		_splintering.value = myprops.splintering;
+		_leaning.value = myprops.leaning;
+		_contractor.value = myprops.contractor;
+		_inspector.value = myprops.inspector;
+		_lat.value = myprops.Ycoord;
+		_lng.value = myprops.Xcoord;
+		_inspdate.value = myprops.date;
+		_myCanvas.value = myprops.photo;
+
+		_btnSetInsp.disabled = true;
+		_integrity.disabled = true;
+		_setcondition.disabled = true;
+		_trtcondition.disabled = true;
+		_splintering.disabled = true;
+		_leaning.disabled = true;
+		_contractor.disabled = true;
+		_btnNewInsp.disabled = false;	
+
+		//add a random photo
+		SetCamera();
+	}
+
+
+	//display poles (NFTs) on the map (colored according to acct)
+	var geojsonLayer;
+	function addExistingPoles(newPole, props) {
+		//export geometry and attribute to geoJSON
+		var intjson = newPole.toGeoJSON();
+		geojsonLayer = L.geoJson(intjson, {
+    	style: function(feature) {
+			return {color: poleColor[props.inspector.charAt(props.inspector.length - 1)-1]}
+    	},
+    	pointToLayer: function(feature, latlng) {
+    	return new L.Circle(latlng, {radius: 15, fillOpacity: 0.85, renderer: myRenderer});
+    	},
+		onEachFeature: function (feature, layer) {
+			layer.on({
+  				'click': function (e) {
+					SetPreviousInspection(props);
+					_btnSetInsp.style.background = 'rgb(230, 223, 223)';
+					_btnSetInsp.style.color = 'grey';
+					_btnCamera.disabled = true;	
+
+					$('.leaflet-container').css('cursor','');
+					document.getElementById('btn_inspectexisting').style.backgroundColor = '#7ad67d';
+					document.getElementById('btn_newpole').style.backgroundColor = '#5aa15c';
+					actionClick = 0;
+  				}
+			});
+
+			//add popup to poles with poleid and link to XRPL explorer
+			var theHash = props.txhash;
+			var container = $('<div />');
+			container.on('click', function() {
+				window.open('https://nft-devnet.xrpl.org/transactions/' + theHash);
+			});
+			container.html("<a href='#'>XRPL Explorer</a>.");
+			container.append($('<span class="bold">').text(props.poleid))
+			layer.bindPopup(container[0])
+		}
+		});	
+		map.addLayer(geojsonLayer);
+		$('.leaflet-container').css('cursor','');
+	}
+
+	async function BtnNew(myID) {
+		//set parameters of inspection elements
+		SetElements(0);
+		_poleid.value = 'UTP-0' + tokenCount;
+		_btnCamera.disabled = false;
+		_inspector.value = myInspector;
+		_btnSetInsp.innerText = 'Submit';
+		_btnSetInsp.style.background= 'rgb(230, 223, 223)'
+		_btnSetInsp.style.color= 'black';
+		_btnNewInsp.disabled = true;
+	
+		//clear image canvas
+		const context = _myCanvas.getContext('2d');
+		context.clearRect(0, 0, _myCanvas.width, _myCanvas.height);
+
+		map.closePopup();
+		$('.leaflet-container').css('cursor','crosshair');
+		document.getElementById(myID).style.backgroundColor = '#7ad67d';
+		document.getElementById('btn_inspectexisting').style.backgroundColor = '#5aa15c';
+		actionClick = 1;
+	}
+
+	function BtnExisting(myID){
+		//clear all data from form
+		_integrity.selectedIndex = 0;
+		_setcondition.selectedIndex = 0;
+		_trtcondition.selectedIndex = 0;
+		_splintering.selectedIndex = 0;
+		_leaning.selectedIndex = 0;
+		_contractor.selectedIndex = 0;
+		_poleid.value = '';
+		_inspector.value = '';
+		_inspdate.value = '';
+		_btnNewInsp.disabled = true;
+
+		$('.leaflet-container').css('cursor','');
+		document.getElementById(myID).style.backgroundColor = '#7ad67d';
+		document.getElementById('btn_newpole').style.backgroundColor = '#5aa15c';
+		actionClick = 0;
+
+		//clear image canvas
+		const context = _myCanvas.getContext('2d');
+		context.clearRect(0, 0, _myCanvas.width, _myCanvas.height);
+	}
+
+	async function tokenCounter(){
+		//get the total number of NFTs in all three accounts
+		var myCount = 0;
+		for (k = 0; k < seedArray.length; k++) {
+			const wallet = myXRPL.Wallet.fromSeed(seedArray[k]);
+			const client = new myXRPL.Client("wss://xls20-sandbox.rippletest.net:51233");
+			await client.connect();
+
+			const nfts = await client.request({
+        		method: "account_nfts",
+        		account: wallet.classicAddress  
+    		});
+			myCount = myCount + nfts.result.account_nfts.length;
+			client.disconnect();
+		}
+		return myCount;
+	}
+
+	function newInsp() {
+		alert('This functionality has been disabled in this demo.')
+	}
+
+	function SetElements(ind){
+		_poleid.style.visibility = 'visible';
+		_integrity.selectedIndex = ind;
+		_setcondition.selectedIndex = ind;
+		_trtcondition.selectedIndex = ind;
+		_splintering.selectedIndex = ind;
+		_leaning.selectedIndex = ind;
+		_contractor.selectedIndex = ind;
+
+		_btnSetInsp.disabled = false;
+		_btnSetInsp.style.background= 'rgb(230, 223, 223)'
+		_btnSetInsp.style.color= 'black';
+
+		_integrity.disabled = false;
+		_setcondition.disabled = false;
+		_trtcondition.disabled = false;
+		_splintering.disabled =false;
+		_leaning.disabled = false;
+		_contractor.disabled = false;
+		_btnCamera.disabled = false;
+
+		var current_datetime = new Date()
+		var formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
+		_inspdate.value = formatted_date;
+	}
+
+	function SetInspector(acct, clrind){
+		myInspector = document.getElementById(acct).innerHTML.substring(0, 11);
+		console.log(myInspector)
+		if (acct == 'acct1label'){
+			_acct2.checked = false; _acct2.disabled = true;
+			_acct3.checked = false; _acct3.disabled = true;
+		} else if (acct == 'acct2label'){
+			_acct1.checked = false; _acct1.disabled = true;
+			_acct3.checked = false; _acct3.disabled = true;
+		} else if (acct == 'acct3label'){
+			_acct1.checked = false; _acct1.disabled = true;
+			_acct2.checked = false; _acct2.disabled = true;
+		}
+		_existInsp.disabled = false;
+		_newPole.disabled = false;
+
+		colorIndex = clrind;
+	}
+
+	function resetInsp(){
+		_acct1.checked = false; _acct1.disabled = false;
+		_acct2.checked = false; _acct2.disabled = false;
+		_acct3.checked = false; _acct3.disabled = false;
+		_existInsp.disabled = true;
+		_newPole.disabled = true;
+		_btnNewInsp.disabled = true;
+		myInspector = "";
+	}
+
+	async function InitialLoad() {
+		tokenCount = await tokenCounter();
+	
+		var xArray = [];
+		var yArray = [];
+		for (var i = 0; i < master_XRPL.features.length; i++){
+			xArray.push(master_XRPL.features[i].geometry.coordinates[0]);
+			yArray.push(master_XRPL.features[i].geometry.coordinates[1]);
+		}
+	
+		for (var j = 0; j < xArray.length; j++){	
+			var existPole = new L.Circle([yArray[j], xArray[j]]);
+			var feature = existPole.feature = existPole.feature || {};
+			feature.type = feature.type || "Feature";
+			var props = feature.properties = feature.properties || {};
+			props.poleid = master_XRPL.features[j].properties.poleid;
+			props.inspector = master_XRPL.features[j].properties.inspector;
+			props.photo = master_XRPL.features[j].properties.photo;
+			props.integrity = master_XRPL.features[j].properties.integrity;
+			props.setcondition = master_XRPL.features[j].properties.setcondition;
+			props.trtcondition = master_XRPL.features[j].properties.trtcondition;
+			props.splintering = master_XRPL.features[j].properties.splintering;
+        	props.leaning = master_XRPL.features[j].properties.leaning;
+       	 	props.contractor = master_XRPL.features[j].properties.contractor;
+			props.Xcoord = master_XRPL.features[j].geometry.coordinates[0];
+			props.Ycoord = master_XRPL.features[j].geometry.coordinates[1];
+			props.date = master_XRPL.features[j].properties.date;
+			props.txhash = master_XRPL.features[j].properties.txhash;
+
+			addExistingPoles(existPole, props);
+		}
+
+		//SetTrimAcct(inspAccounts.Inspector_1, 'acct1label', 1);
+		//SetTrimAcct(inspAccounts.Inspector_2, 'acct2label', 2);
+		//SetTrimAcct(inspAccounts.Inspector_3, 'acct3label', 3);
+	
+	 	_acct1.checked = true;
+		_acct2.disabled = true;
+		_acct3.disabled = true;
+	
+		_btnCamera.disabled = true;
+		_integrity.disabled = true;
+		_setcondition.disabled = true;
+		_trtcondition.disabled = true;
+		_splintering.disabled = true;
+		_leaning.disabled = true;
+		_contractor.disabled = true;
+		_btnSetInsp.disabled = true;
+	}
+
+	function SetTrimAcct(theAccount, myLabel, theInspector){
+		var trimAcct = theAccount.substr(0, 6) + "......" + theAccount.substr(theAccount.length - 4, theAccount.length);
+		var fullAcct = document.getElementById(myLabel).innerHTML = 'Inspector ' + theInspector + '&nbsp &nbsp' +'(' + trimAcct + ')';
+	}
+
+	function SetCamera() {
+		var randint = Math.floor(Math.random() * 11);  //a random integer from 0 to 10
+		var canvas = _myCanvas;
+		var ctx = canvas.getContext('2d');
+		var imageObj = new Image();
+		imageObj.src = 'img/UTP-' + randint.toString() + '.jpg';
+		imageObj.onload = function() {
+			ctx.drawImage(imageObj, 0, 0, imageObj.width,    imageObj.height, 0, 0, canvas.width, canvas.height);
+		};
+	}
+</script>
+</body>
+</html>
+
