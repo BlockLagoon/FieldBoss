@@ -1,7 +1,7 @@
 Welcome to FieldBoss!
 ---------------------
 
-_**FieldBoss**_ is a prototype GIS application that incorporates Distributed Ledger Technology (Blockchain) into the process of collecting and storing spatial geometries (points, line, polygons). [Open FieldBoss](https://master.d2ixah97zgzvew.amplifyapp.com/) Click a feature on the map to display a popup and click 'select' to view recent inspection data. Zoom to your current location by clicking the 'globe' button and start collecting and reviewing spatial data. See 'Navigating the UI' for specific instructions. (Note: the default theme is Stormwater Inspection) FieldBoss is adaptable and can be used to collect any type of data at any location.  
+_**FieldBoss**_ is a prototype GIS application that incorporates Distributed Ledger Technology (Blockchain) into the process of collecting and storing spatial geometries (points, line, polygons). ** [Open FieldBoss](https://master.d2ixah97zgzvew.amplifyapp.com/)**  Click a feature on the map to display a popup and click 'select' to view recent inspection data. Zoom to your current location by clicking the 'globe' button and start collecting and reviewing spatial data. See 'Navigating the UI' for specific instructions. (Note: the default theme is Stormwater Inspection) FieldBoss is adaptable and can be used to collect any type of data at any location.  
 
 ![image info](./img/fieldboss.jpg)
 
